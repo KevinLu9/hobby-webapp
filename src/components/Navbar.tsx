@@ -48,7 +48,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="flex h-screen bg-blue-100 opacity-80 dark:bg-gray-900">
+      <div className="flex h-screen bg-blue-100 opacity-80 dark:bg-gray-900 relative">
         <div className="-z-10">
           <ParticleContainer />
         </div>
@@ -58,7 +58,7 @@ export default function Navbar() {
             {renderPaths(paths, navigate, pathname)}
           </div>
         </div>
-        <div className="w-full h-full">
+        <div className="absolute top-0">
           {/* Mobile*/}
           {renderDrawer(
             paths,
@@ -67,6 +67,8 @@ export default function Navbar() {
             isSidebarOpen,
             setIsSidebarOpen
           )}
+        </div>
+        <div className="w-full h-full">
           <Outlet />
         </div>
       </div>
@@ -127,7 +129,7 @@ function renderPaths(
 ) {
   return (
     <>
-      <ul className="menu p-4 h-fit w-full">
+      <ul className="menu p-4 h-fit w-full relative">
         {paths.map((path, index) => (
           <li key={index} className="flex items-center justify-center">
             <button
@@ -149,6 +151,7 @@ function renderPaths(
           <ThemeButton />
         </div>
       </ul>
+      <div className="absolute bottom-0 left-2 text-xs">©2024 Kevin Lu</div>
     </>
   );
 }

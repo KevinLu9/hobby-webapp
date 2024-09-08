@@ -9,7 +9,7 @@ export default function Projects() {
             <PresentationChartBarIcon className="w-8 h-8 p-0 m-0" />
             <p className="font-bold text-2xl uppercase text-center">Projects</p>
           </div>
-          <div className="w-full md:w-2/3 h-full md:h-2/3 opacity-80 bg-base-100 rounded-md shadow-xl animate-[slideRight_1s]">
+          <div className="w-full md:w-2/3 h-2/3 md:h-fit aspect-video bg-base-100 rounded-md shadow-xl animate-[slideRight_1s]">
             <div className="m-4"></div>
           </div>
         </div>
