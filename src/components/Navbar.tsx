@@ -48,7 +48,8 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="flex h-screen bg-blue-100 opacity-80 dark:bg-gray-900 relative">
+      <div className="flex h-screen relative">
+        <div className="w-full h-screen absolute opacity-80 bg-blue-100 -z-10 dark:bg-gray-900" />
         <div className="-z-10">
           <ParticleContainer />
         </div>

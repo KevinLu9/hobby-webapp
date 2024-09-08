@@ -27,7 +27,8 @@ export default function Home() {
             <HomeIcon className="w-8 h-8 p-0 m-0" />
             <p className="font-bold text-2xl uppercase text-center">Home</p>
           </div>
-          <div className="w-full md:w-2/3 h-2/3 md:h-fit  max-h-[80dvh] aspect-video bg-base-100 rounded-md shadow-xl relative animate-[slideRight_1s]">
+          <div className="w-full md:w-2/3 h-2/3 md:h-fit max-h-[80dvh] aspect-video bg-base-100 rounded-md shadow-xl relative animate-[slideRight_1s]">
+            {/* Social Media Icons START */}
             <div className="flex flex-row justify-start items-center gap-1 absolute right-1 bottom-1">
               <a
                 target="_blank"
@@ -44,6 +45,8 @@ export default function Home() {
                 <LogoLinkedin className="w-full h-full dark:text-gray-300" />
               </a>
             </div>
+            {/* Social Media Icons END */}
+            {/* Profile Details START */}
             <div className="w-full h-full flex flex-col md:flex-row items-center gap-4 md:gap-0 justify-start md:justify-around p-10">
               <div className="w-1/2 md:w-1/3 h-fit">
                 <img
@@ -51,11 +54,11 @@ export default function Home() {
                   className="w-fit h-fit rounded-full outline outline-black dark:outline-white"
                 />
               </div>
-              <div className="flex flex-col">
-                <p className="font-bold text-5xl md:text-6xl">
+              <div className="flex flex-col gap-1">
+                <p className="font-bold text-5xl md:text-6xl mb-4">
                   {profileDetails.name}
                 </p>
-                <div className="flex items-center gap-1">
+                <div className="flex flex-col md:flex-row items-center gap-1">
                   <button
                     className="flex gap-2 items-center btn-xs btn-ghost rounded-sm w-fit"
                     onClick={() => {
@@ -66,19 +69,20 @@ export default function Home() {
                       }, 1000);
                     }}
                   >
-                    <MapPinIcon className="w-4 h-4" />
+                    <MapPinIcon className="w-5 h-5" />
                     <p className="whitespace-pre-wrap">
                       {profileDetails.address}
                     </p>
                   </button>
+
                   <div
                     className={`flex items-center gap-1 animate-[bounce_0.5s_infinite] ${!addressCopied && "invisible"}`}
                   >
-                    <CheckCircleIcon className="w-4 h-4 text-green-500" />
-                    <p className="text-xs">Saved</p>
+                    <CheckCircleIcon className="w-5 h-5 text-green-500" />
+                    <p className="text-xs">Copied</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-1">
+                <div className="flex flex-col md:flex-row items-center gap-1">
                   <button
                     className="flex gap-2 items-center btn-xs btn-ghost rounded-sm w-fit"
                     onClick={() => {
@@ -89,7 +93,7 @@ export default function Home() {
                       }, 1000);
                     }}
                   >
-                    <PhoneIcon className="w-4 h-4" />
+                    <PhoneIcon className="w-5 h-5" />
                     <p className="whitespace-pre-wrap">
                       {profileDetails.phone}
                     </p>
@@ -98,11 +102,11 @@ export default function Home() {
                   <div
                     className={`flex items-center gap-1 animate-[bounce_0.5s_infinite] ${!phoneCopied && "invisible"}`}
                   >
-                    <CheckCircleIcon className="w-4 h-4 text-green-500" />
-                    <p className="text-xs">Saved</p>
+                    <CheckCircleIcon className="w-5 h-5 text-green-500" />
+                    <p className="text-xs">Copied</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-1">
+                <div className="flex flex-col md:flex-row items-center gap-1">
                   <button
                     className="flex gap-2 items-center btn-xs btn-ghost rounded-sm w-fit"
                     onClick={() => {
@@ -113,7 +117,7 @@ export default function Home() {
                       }, 1000);
                     }}
                   >
-                    <EnvelopeIcon className="w-4 h-4" />
+                    <EnvelopeIcon className="w-5 h-5" />
                     <p className="whitespace-pre-wrap">
                       {profileDetails.email}
                     </p>
@@ -121,12 +125,13 @@ export default function Home() {
                   <div
                     className={`flex items-center gap-1 animate-[bounce_0.5s_infinite] ${!emailCopied && "invisible"}`}
                   >
-                    <CheckCircleIcon className="w-4 h-4 text-green-500" />
-                    <p className="text-xs">Saved</p>
+                    <CheckCircleIcon className="w-5 h-5 text-green-500" />
+                    <p className="text-xs">Copied</p>
                   </div>
                 </div>
               </div>
             </div>
+            {/* Profile Details END */}
           </div>
         </div>
       </div>
