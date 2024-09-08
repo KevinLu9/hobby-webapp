@@ -10,7 +10,7 @@ import { LogoLinkedin, LogoGithub } from "@carbon/icons-react";
 export default function Home() {
   const profileDetails = {
     name: "Kevin Lu",
-    address: "3174 Melbourne, Victoria, Australia",
+    address: "3174, Melbourne, Victoria, Australia",
     phone: "+61 424 386 242",
     email: "kevin.lu902@gmail.com",
   };
@@ -48,17 +48,17 @@ export default function Home() {
             {/* Social Media Icons END */}
             {/* Profile Details START */}
             <div className="w-full h-full flex flex-col md:flex-row items-center gap-4 md:gap-0 justify-start md:justify-around p-10">
-              <div className="w-1/2 md:w-1/3 h-fit">
+              <div className="w-1/3 h-fit">
                 <img
                   src="profile_pic.png"
                   className="w-fit h-fit rounded-full outline outline-black dark:outline-white"
                 />
               </div>
               <div className="flex flex-col gap-1">
-                <p className="font-bold text-5xl md:text-6xl mb-4">
+                <p className="font-bold text-5xl lg:text-6xl mb-4 text-center md:text-left">
                   {profileDetails.name}
                 </p>
-                <div className="flex flex-col md:flex-row items-center gap-1">
+                <div className="flex items-center gap-1">
                   <button
                     className="flex gap-2 items-center btn-xs btn-ghost rounded-sm w-fit"
                     onClick={() => {
@@ -70,7 +70,7 @@ export default function Home() {
                     }}
                   >
                     <MapPinIcon className="w-5 h-5" />
-                    <p className="whitespace-pre-wrap">
+                    <p className="whitespace-pre-nowrap">
                       {profileDetails.address}
                     </p>
                   </button>
@@ -82,7 +82,7 @@ export default function Home() {
                     <p className="text-xs">Copied</p>
                   </div>
                 </div>
-                <div className="flex flex-col md:flex-row items-center gap-1">
+                <div className="flex items-center gap-1">
                   <button
                     className="flex gap-2 items-center btn-xs btn-ghost rounded-sm w-fit"
                     onClick={() => {
@@ -106,7 +106,7 @@ export default function Home() {
                     <p className="text-xs">Copied</p>
                   </div>
                 </div>
-                <div className="flex flex-col md:flex-row items-center gap-1">
+                <div className="flex items-center gap-1">
                   <button
                     className="flex gap-2 items-center btn-xs btn-ghost rounded-sm w-fit"
                     onClick={() => {
