@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useLocation, NavigateFunction } from "react-router";
 import {
   Bars3Icon,
   HomeIcon,
   ClipboardDocumentListIcon,
+  PresentationChartBarIcon,
 } from "@heroicons/react/24/outline";
 import ThemeButton from "./ThemeButton";
+import { Outlet } from "react-router-dom";
+import ParticleContainer from "./ParticleContainer";
 
 interface IPath {
   name: string;
@@ -14,7 +17,7 @@ interface IPath {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function Navbar(props: any) {
+export default function Navbar() {
   const paths = [
     {
       name: "Home",
@@ -26,25 +29,45 @@ export default function Navbar(props: any) {
       path: "/resume",
       icon: <ClipboardDocumentListIcon className="w-6 h-6 p-0 m-0" />,
     },
+    {
+      name: "Projects",
+      path: "/projects",
+      icon: <PresentationChartBarIcon className="w-6 h-6 p-0 m-0" />,
+    },
   ];
 
   const navigate = useNavigate();
   const location = useLocation();
-  const [pathname] = useState(location.pathname);
+  const [pathname, setPathName] = useState(location.pathname);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  useEffect(() => {
+    setIsSidebarOpen(false);
+    setPathName(location.pathname);
+  }, [location.pathname]);
 
   return (
     <>
-      <div className="flex h-screen bg-blue-100 dark:bg-gray-900">
+      <div className="flex h-screen bg-blue-100 opacity-80 dark:bg-gray-900">
+        <div className="-z-10">
+          <ParticleContainer />
+        </div>
         <div className="h-full rounded-b-sm flex gap-2">
-          <div className="h-full hidden sm:flex items-center">
+          <div className="h-full hidden md:flex items-center">
             {/* Desktop*/}
             {renderPaths(paths, navigate, pathname)}
           </div>
         </div>
-        <div className="w-full h-full p-2">
+        <div className="w-full h-full">
           {/* Mobile*/}
-          {renderDrawer(paths, navigate, pathname)}
-          {props.children}
+          {renderDrawer(
+            paths,
+            navigate,
+            pathname,
+            isSidebarOpen,
+            setIsSidebarOpen
+          )}
+          <Outlet />
         </div>
       </div>
     </>
@@ -54,12 +77,29 @@ export default function Navbar(props: any) {
 function renderDrawer(
   paths: Array<IPath>,
   navigate: NavigateFunction,
-  pathname: string
+  pathname: string,
+  isSidebarOpen: boolean,
+  setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>
 ) {
   return (
     <>
-      <div className="drawer sm:hidden">
-        <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+      <div
+        className="drawer z-[99] md:hidden"
+        onBlur={(e) => {
+          if (!e.currentTarget.contains(e.relatedTarget)) {
+            setIsSidebarOpen(false);
+          }
+        }}
+      >
+        <input
+          checked={isSidebarOpen}
+          onChange={(e) => {
+            setIsSidebarOpen(Boolean(e.target.value));
+          }}
+          id="my-drawer"
+          type="checkbox"
+          className="drawer-toggle"
+        />
         <div className="drawer-content">
           <label htmlFor="my-drawer">
             <Bars3Icon className="w-12 h-12" />
@@ -71,7 +111,7 @@ function renderDrawer(
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <div className="sm:hidden flex justify-center h-full p-4 w-80 min-h-full bg-base-200 text-base-content">
+          <div className="md:hidden flex justify-center h-full p-4 w-80 min-h-full bg-base-200 text-base-content">
             {renderPaths(paths, navigate, pathname)}
           </div>
         </div>

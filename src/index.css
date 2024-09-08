@@ -24,15 +24,15 @@ a {
 }
 
 .fade-in {
-  animation: fadeIn 3s;
+  animation: fadeIn 2s;
 }
 
 .slide-left {
-  animation: slideLeft 1s;
+  animation: slideLeft 0.5s;
 }
 
 .slide-right {
-  animation: slideRight 1s;
+  animation: slideRight 0.5s;
 }
 
 .flip-card {
