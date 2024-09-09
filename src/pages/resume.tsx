@@ -149,11 +149,11 @@ export default function Resume() {
               <ResumeButtons {...{ tab, setTab, resumeData }} />
               {/* Side Buttons END */}
               {/* Tab Information START */}
-              <div className="z-[5] w-full h-[58dvh]">
-                <div className="w-full border-2 border-blue-600 hidden md:block" />
+              <div className="z-[5] w-full h-[58dvh] relative">
+                <div className="w-full border-2 border-blue-600 hidden md:block absolute top-0" />
                 <div className="w-full h-full overflow-x-hidden overflow-y-auto p-2">
                   {tab == 0 && (
-                    <div className="p-2 w-full h-full">
+                    <div className="w-full h-full">
                       <div className="flex gap-2 items-center animate-[fadeSlideLeft_1s]">
                         <RocketLaunchIcon className="w-5 h-5" />
                         <p className="font-bold text-lg uppercase">
@@ -168,7 +168,7 @@ export default function Resume() {
                     </div>
                   )}
                   {tab == 1 && (
-                    <div className="p-2 w-full h-full">
+                    <div className="w-full h-full">
                       <div className="flex gap-2 items-center animate-[fadeSlideLeft_1s]">
                         <RecentlyViewed className="w-5 h-5" />
                         <p className="font-bold text-lg uppercase">
@@ -200,7 +200,7 @@ export default function Resume() {
                     </div>
                   )}
                   {tab == 2 && (
-                    <div className="p-2 w-full h-full">
+                    <div className="w-full h-full">
                       <div className="flex gap-2 items-center w-full animate-[fadeSlideLeft_1s]">
                         <BuildingLibraryIcon className="w-5 h-5" />
                         <p className="font-bold text-lg uppercase">
@@ -228,7 +228,7 @@ export default function Resume() {
                     </div>
                   )}
                   {tab == 3 && (
-                    <div className="p-2 w-full h-full">
+                    <div className="w-full h-full">
                       <div className="flex gap-2 items-center w-full animate-[fadeSlideLeft_1s]">
                         <Cog8ToothIcon className="w-5 h-5" />
                         <p className="font-bold text-lg uppercase">
@@ -252,7 +252,7 @@ export default function Resume() {
                     </div>
                   )}
                   {tab == 4 && (
-                    <div className="p-2 w-full h-full">
+                    <div className="w-full h-full">
                       <div className="flex gap-2 items-center w-full animate-[fadeSlideLeft_1s]">
                         <TrophyIcon className="w-5 h-5" />
                         <p className="font-bold text-lg uppercase">
