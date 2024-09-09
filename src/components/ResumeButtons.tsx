@@ -25,7 +25,7 @@ export default function ResumeButtons({
           }}
         />
       </div>
-      <div className="w-max flex flex-row md:flex-col gap-1 overflow-x-auto">
+      <div className="w-max flex flex-row md:flex-col gap-1 overflow-x-auto pb-1">
         {resumeData.map((page, index) => {
           return (
             <button
