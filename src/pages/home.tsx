@@ -47,11 +47,11 @@ export default function Home() {
             </div>
             {/* Social Media Icons END */}
             {/* Profile Details START */}
-            <div className="w-full h-full flex flex-col md:flex-row items-center gap-4 md:gap-0 justify-start md:justify-around p-10">
-              <div className="w-1/3 h-fit">
+            <div className="w-full h-full flex flex-col md:flex-row items-center gap-2 md:gap-4 lg:gap-20 justify-start md:justify-center">
+              <div className="w-fit h-1/3 aspect-square">
                 <img
                   src="profile_pic.png"
-                  className="w-fit h-fit rounded-full outline outline-black dark:outline-white"
+                  className="w-full h-full aspect-square max-w-[300px] max-h-[300px] rounded-full outline outline-black dark:outline-white"
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -70,7 +70,7 @@ export default function Home() {
                     }}
                   >
                     <MapPinIcon className="w-5 h-5" />
-                    <p className="whitespace-pre-nowrap">
+                    <p className="whitespace-pre-nowrap text-nowrap">
                       {profileDetails.address}
                     </p>
                   </button>
@@ -86,7 +86,9 @@ export default function Home() {
                   <button
                     className="flex gap-2 items-center btn-xs btn-ghost rounded-sm w-fit"
                     onClick={() => {
-                      navigator.clipboard.writeText(profileDetails.phone);
+                      navigator.clipboard.writeText(
+                        profileDetails.phone.replace(/ /g, "")
+                      );
                       setPhoneCopied(true);
                       setTimeout(() => {
                         setPhoneCopied(false);

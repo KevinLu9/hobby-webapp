@@ -8,119 +8,137 @@ import {
   RocketLaunchIcon,
   TrophyIcon,
   UserIcon,
-  ChevronLeftIcon,
   ChevronRightIcon,
+  ChevronLeftIcon,
 } from "@heroicons/react/24/outline";
 import { RecentlyViewed } from "@carbon/icons-react";
 import { useState } from "react";
+import ResumeButtons from "../components/ResumeButtons";
 
 export default function Resume() {
-  const resumeData = {
-    careerObjective: `I am a university graduate looking for full-time employment. I have a background in technology, coding and engineering.
-                        My goal is to currently broaden my skills and knowledge by tackling difficult problems. Being a very self-driven person, I
-                        constantly pursue improvement and refinement in the work I do. As a result, I aspire to be diligent in my work. My
-                        current goal is to develop myself as a professional engineer or any other related fields that can make use of my hardware
-                        and software skills.
-                        `,
-    careerHistory: [
-      {
-        company: "School of Academic Coaching",
-        start_date: dayjs("2018-12-01"),
-        finish_date: dayjs("2021-09-01"),
-        present: false,
-        job_title: " Primary and Secondary Tutor",
-        description: `  - Tutored children in primary and secondary school
-                        - Managed classes from 5 to 15 students.
-                        - Aided in administrative work.
-                        - Trained new employees.
+  const resumeData = [
+    {
+      title: "Career Objective",
+      icon: <RocketLaunchIcon className="w-5 h-5" />,
+      description: `I am a recent university graduate looking for full-time employment. I have a background in technology, coding and engineering.
+      My goal is to currently broaden my skills and knowledge by tackling difficult problems. Being a very self-driven person, I
+      constantly pursue improvement and refinement in the work I do. As a result, I aspire to be diligent in my work. My
+      current goal is to develop myself as a professional engineer or any other related fields that can make use of my hardware
+      and software skills.
+      `,
+    },
+    {
+      title: "Career History",
+      icon: <RecentlyViewed className="w-5 h-5" />,
+      history: [
+        {
+          company: "School of Academic Coaching",
+          start_date: "2018-12-01",
+          finish_date: "2021-09-01",
+          present: false,
+          job_title: " Primary and Secondary Tutor",
+          description: `- Tutored children in primary and secondary school
+- Managed classes from 5 to 15 students.
+- Aided in administrative work.
+- Trained new employees.
                       `,
-      },
-      {
-        company: "Monash Uncrewed Aerial Systems",
-        start_date: dayjs("2023-04-01"),
-        finish_date: dayjs("2024-01-01"),
-        present: false,
-        job_title: " Primary and Secondary Tutor",
-        description: `  - Programming software that interfaces with the drone to provide live telemetry to users (OpenCV, Mavlink, Mission Planner).
-                        - Sending and requesting data using RF technologies (900MHz).
-                        - Frontend Development (VueJS, MaterialUI).
-                        - Backend Development (Python WebSockets, RESTful API).
+        },
+        {
+          company: "Monash Uncrewed Aerial Systems",
+          start_date: "2023-04-01",
+          finish_date: "2024-01-01",
+          present: false,
+          job_title: " Primary and Secondary Tutor",
+          description: `- Programming software that interfaces with the drone to provide live telemetry to users (OpenCV, Mavlink, Mission Planner).
+- Sending and requesting data using RF technologies (900MHz).
+- Frontend Development (VueJS, MaterialUI).
+- Backend Development (Python WebSockets, RESTful API).
                       `,
-      },
-      {
-        company: "Techreative",
-        start_date: dayjs("2023-05-01"),
-        finish_date: null,
-        present: true,
-        job_title: " Primary and Secondary Tutor",
-        description: `  - Programming software that interfaces with the drone to provide live telemetry to users (OpenCV, Mavlink, Mission Planner).
-                        - Sending and requesting data using RF technologies (900MHz).
-                        - Frontend Development (VueJS, MaterialUI).
-                        - Backend Development (Python WebSockets, RESTful API).
+        },
+        {
+          company: "Techreative",
+          start_date: "2023-05-01",
+          finish_date: null,
+          present: true,
+          job_title: "Software Engineer",
+          description: `- Programming software that interfaces with the drone to provide live telemetry to users (OpenCV, Mavlink, Mission Planner).
+- Sending and requesting data using RF technologies (900MHz).
+- Frontend Development (VueJS, MaterialUI).
+- Backend Development (Python WebSockets, RESTful API).
                       `,
-      },
-    ],
-    education: [
-      {
-        institution: "Lighthouse Christian College",
-        description: `- Completed VCE (English, Physics, Chemistry, Specialist Math, Math Methods, and Further Math) - 96.7`,
-      },
-      {
-        institution: "Monash University",
-        description: `- Bachelor of Electrical and Computer Systems Engineering (Honours).
-                      - Bachelor of Computer Science (Advanced).
-                      - Distinction Level WAM - 79
-                      - GPA - 3.5 / 4.0
-                      `,
-      },
-    ],
-    skills: [
-      {
-        name: "Programming",
-        description: "",
-      },
-      {
-        name: "",
-        description: "",
-      },
-      {
-        name: "LEADERSHIP SKILLS",
-        description: `- In university, I led engineering projects, which enabled me to demonstrate my proficiency when managing
-        workload and time effectively, while also understanding each team member's strengths and weaknesses.`,
-      },
-      {
-        name: "COMMUNICATION SKILLS",
-        description: `- As a result from my work experience as a tutor, I have experience in speaking openly and clearly to customers
-        and clients.`,
-      },
-      {
-        name: "PROBLEM SOLVING SKILLS",
-        description: `- As an Engineering and IT student, I enjoy looking at problems from different perspectives and make calculated
-        decisions. Due to this, I am eager to confront new challenges and find new solutions to problems.`,
-      },
-      {
-        name: "TEAMWORK",
-        description: `- I have worked under various team environments during my time as an engineering student and as a software
-        engineer at Techreative. This has given me the opportunity to understand the requirements and characterstics that
-        make up a team.`,
-      },
-      {
-        name: "ADAPTABILITY",
-        description: `- While working as a tutor, I was given up to dozens of students of varying year levels. Adjusting to each students'
-        needs and accommodating each student has developed my ability to work under stressful circumstances.`,
-      },
-      {
-        name: "CODING SKILLS",
-        description: `- Python (Flask, Django), C, C++
-        - Javascript, HTML, CSS (ReactJS, VueJS, SvelteJS, TailwindCSS, MeteorJS)`,
-      },
-    ],
-    achievements: [
-      "DUX of Lighthouse Christian College (2018).",
-      "Monash University: Faculty of Engineering Dean’s Honour List (2019, 2023).",
-      "Vice-Chancellor’s Scholarship for Excellence at Monash (2019).",
-    ],
-  };
+        },
+      ],
+    },
+    {
+      title: "Education",
+      icon: <BuildingLibraryIcon className="w-5 h-5" />,
+      education: [
+        {
+          institution: "Lighthouse Christian College",
+          description: `- Completed VCE (English, Physics, Chemistry, Specialist Math, Math Methods, and Further Math) - 96.7`,
+          start_date: "2014-2-1",
+          finish_date: "2018-12-1",
+        },
+        {
+          institution: "Monash University",
+          description: `- Bachelor of Electrical and Computer Systems Engineering (Honours).
+- Bachelor of Computer Science (Advanced).
+- Distinction Level WAM - 79
+- GPA - 3.5 / 4.0`,
+          start_date: "2019-3-1",
+          finish_date: "2023-11-1",
+        },
+      ],
+    },
+    {
+      title: "Skills",
+      icon: <Cog8ToothIcon className="w-5 h-5" />,
+      skills: [
+        {
+          name: "Programming",
+          description: "",
+        },
+        {
+          name: "",
+          description: "",
+        },
+        {
+          name: "LEADERSHIP SKILLS",
+          description: `- In university, I led engineering projects, which enabled me to demonstrate my proficiency when managing workload and time effectively, while also understanding each team member's strengths and weaknesses.`,
+        },
+        {
+          name: "COMMUNICATION SKILLS",
+          description: `- As a result from my work experience as a tutor, I have experience in speaking openly and clearly to customers and clients.`,
+        },
+        {
+          name: "PROBLEM SOLVING SKILLS",
+          description: `- As an Engineering and IT student, I enjoy looking at problems from different perspectives and make calculated decisions. Due to this, I am eager to confront new challenges and find new solutions to problems.`,
+        },
+        {
+          name: "TEAMWORK",
+          description: `- I have worked under various team environments during my time as an engineering student and as a software engineer at Techreative. This has given me the opportunity to understand the requirements and characterstics that make up a team.`,
+        },
+        {
+          name: "ADAPTABILITY",
+          description: `- While working as a tutor, I was given up to dozens of students of varying year levels. Adjusting to each students' needs and accommodating each student has developed my ability to work under stressful circumstances.`,
+        },
+        {
+          name: "CODING SKILLS",
+          description: `- Python (Flask, Django), C, C++
+- Javascript, HTML, CSS (ReactJS, VueJS, SvelteJS, TailwindCSS, MeteorJS)`,
+        },
+      ],
+    },
+    {
+      title: "Achievements",
+      icon: <TrophyIcon className="w-5 h-5" />,
+      achievements: [
+        "DUX of Lighthouse Christian College (2018).",
+        "Monash University: Faculty of Engineering Dean's Honour List (2019, 2023).",
+        "Vice-Chancellor's Scholarship for Excellence at Monash (2019).",
+      ],
+    },
+  ];
 
   const [tab, setTab] = useState(0);
 
@@ -136,144 +154,142 @@ export default function Resume() {
             <div className="w-full h-fit md:h-full flex flex-col md:flex-row">
               {/* <FlipCard front={<>FRONT</>} back={<>BACK</>} /> */}
               {/* Side Buttons START */}
-              <div className=" relative z-[10] bg-white dark:bg-gray-800 border-r shadow-md md:shadow-xl w-full md:w-fill max-w-fit h-full flex flex-row md:flex-col items-center justify-start md:justify-center gap-1 p-2 overflow-x-scroll md:overflow-x-hidden">
-                {/* <ChevronLeftIcon className="absolute -left-2 w-8 h-8 animate-pulse" /> */}
-                <ChevronRightIcon className="fixed right-0 w-8 h-8 animate-pulse text-indigo-200" />
-                <button
-                  className={`btn btn-sm w-fit md:w-full ${tab == 0 ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-gray-600 text-white"}`}
-                  onClick={() => {
-                    setTab(0);
-                  }}
-                >
-                  <div className="flex items-center justify-start w-full gap-1">
-                    <RocketLaunchIcon className="w-5 h-5" />
-                    <p className="whitespace-nowrap">Career Objective</p>
-                  </div>
-                </button>
-                <button
-                  className={`btn btn-sm w-fit md:w-full ${tab == 1 ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-gray-600 text-white"}`}
-                  onClick={() => {
-                    setTab(1);
-                  }}
-                >
-                  <div className="flex items-center justify-start w-full gap-1">
-                    <RecentlyViewed className="w-5 h-5" />
-                    <p className="whitespace-nowrap">Career History</p>
-                  </div>
-                </button>
-                <button
-                  className={`btn btn-sm w-fit md:w-full ${tab == 2 ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-gray-600 text-white"}`}
-                  onClick={() => {
-                    setTab(2);
-                  }}
-                >
-                  <div className="flex items-center justify-start w-full gap-1">
-                    <BuildingLibraryIcon className="w-5 h-5" />
-                    <p className="whitespace-nowrap">Education</p>
-                  </div>
-                </button>
-                <button
-                  className={`btn btn-sm w-fit md:w-full ${tab == 3 ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-gray-600 text-white"}`}
-                  onClick={() => {
-                    setTab(3);
-                  }}
-                >
-                  <div className="flex items-center justify-start w-full gap-1">
-                    <Cog8ToothIcon className="w-5 h-5" />
-                    <p className="whitespace-nowrap">Skills</p>
-                  </div>
-                </button>
-                <button
-                  className={`btn btn-sm w-fit md:w-full ${tab == 4 ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-gray-600 text-white"}`}
-                  onClick={() => {
-                    setTab(4);
-                  }}
-                >
-                  <div className="flex items-center justify-start w-full gap-1">
-                    <TrophyIcon className="w-5 h-5" />
-                    <p className="whitespace-nowrap">Achievements</p>
-                  </div>
-                </button>
-                <button
-                  className={`btn btn-sm w-fit md:w-full ${tab == 5 ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-gray-600 text-white"}`}
-                  onClick={() => {
-                    setTab(5);
-                  }}
-                >
-                  <div className="flex items-center justify-start w-full gap-1">
-                    <UserIcon className="w-5 h-5" />
-                    <p className="whitespace-nowrap">Referees</p>
-                  </div>
-                </button>
-              </div>
+              <ResumeButtons {...{ tab, setTab, resumeData }} />
               {/* Side Buttons END */}
               {/* Tab Information START */}
-              <div className="z-[5] w-full h-[60dvh]">
+              <div className="z-[5] w-full h-[58dvh]">
                 <div className="w-full border-2 border-blue-600 hidden md:block" />
-                {tab == 0 && (
-                  <div className="p-2 w-full h-full overflow-y-auto overflow-x-hidden">
-                    <div className="flex gap-2 items-center animate-[slideLeft_1s]">
-                      <RocketLaunchIcon className="w-5 h-5" />
-                      <p className="font-bold text-lg uppercase">
-                        Career Objective
-                      </p>
+                <div className="w-full h-full overflow-x-hidden overflow-y-auto p-2">
+                  {tab == 0 && (
+                    <div className="p-2 w-full h-full">
+                      <div className="flex gap-2 items-center animate-[fadeSlideLeft_1s]">
+                        <RocketLaunchIcon className="w-5 h-5" />
+                        <p className="font-bold text-lg uppercase">
+                          {resumeData[0]?.title}
+                        </p>
+                      </div>
+                      <div className="w-full h-auto lg:h-5/6 p-4">
+                        <p className="animate-[fadeIn_1s] border shadow-md rounded-md p-4">
+                          {resumeData[0]?.description}
+                        </p>
+                      </div>
                     </div>
-                    <div className="w-full p-4 flex items-center justify-center">
-                      <p className="animate-[fadeIn_1s] border border-black rounded-md p-4">
-                        {resumeData?.careerObjective}
-                      </p>
+                  )}
+                  {tab == 1 && (
+                    <div className="p-2 w-full h-full">
+                      <div className="flex gap-2 items-center animate-[fadeSlideLeft_1s]">
+                        <RecentlyViewed className="w-5 h-5" />
+                        <p className="font-bold text-lg uppercase">
+                          {resumeData[1]?.title}
+                        </p>
+                      </div>
+                      <div className="animate-[fadeIn_1s]">
+                        {resumeData[1]?.history?.map((career) => {
+                          return (
+                            <div key={career.company}>
+                              <p className="font-bold text-lg underline">
+                                {career?.company}
+                              </p>
+                              <p className="font-bold uppercase italic">
+                                {career?.job_title}
+                              </p>
+                              <p className="text-sm">
+                                ({dayjs(career?.start_date).format("MMM YYYY")}{" "}
+                                -{" "}
+                                {dayjs(career?.finish_date).format("MMM YYYY")})
+                              </p>
+                              <p className="whitespace-pre text-wrap">
+                                {career?.description}
+                              </p>
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
-                  </div>
-                )}
-                {tab == 1 && (
-                  <div className="p-2 w-full h-full">
-                    <div className="flex gap-2 items-center animate-[slideLeft_1s]">
-                      <RecentlyViewed className="w-5 h-5" />
-                      <p className="font-bold text-lg uppercase">
-                        Career History
-                      </p>
+                  )}
+                  {tab == 2 && (
+                    <div className="p-2 w-full h-full">
+                      <div className="flex gap-2 items-center w-full animate-[fadeSlideLeft_1s]">
+                        <BuildingLibraryIcon className="w-5 h-5" />
+                        <p className="font-bold text-lg uppercase">
+                          {resumeData[2]?.title}
+                        </p>
+                      </div>
+                      <div className="animate-[fadeIn_1s]">
+                        {resumeData[2]?.education?.map((edu) => {
+                          return (
+                            <div key={edu?.institution}>
+                              <p className="font-bold text-lg underline">
+                                {edu?.institution}
+                              </p>
+                              <p className="text-sm">
+                                ({dayjs(edu?.start_date).format("MMM YYYY")} -{" "}
+                                {dayjs(edu?.finish_date).format("MMM YYYY")})
+                              </p>
+                              <p className="whitespace-pre text-wrap">
+                                {edu?.description}
+                              </p>
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
-                    <p className="animate-[fadeIn_1s]">desc</p>
-                  </div>
-                )}
-                {tab == 2 && (
-                  <div className="p-2 w-full h-full">
-                    <div className="flex gap-2 items-center w-full animate-[slideLeft_1s]">
-                      <BuildingLibraryIcon className="w-5 h-5" />
-                      <p className="font-bold text-lg uppercase">Education</p>
+                  )}
+                  {tab == 3 && (
+                    <div className="p-2 w-full h-full">
+                      <div className="flex gap-2 items-center w-full animate-[fadeSlideLeft_1s]">
+                        <Cog8ToothIcon className="w-5 h-5" />
+                        <p className="font-bold text-lg uppercase">
+                          {resumeData[3]?.title}
+                        </p>
+                      </div>
+                      <div className="animate-[fadeIn_1s]">
+                        {resumeData[3]?.skills?.map((skill) => {
+                          return (
+                            <div key={skill?.name}>
+                              <p className="font-bold text-lg underline">
+                                {skill?.name}
+                              </p>
+                              <p className="whitespace-pre text-wrap">
+                                {skill?.description}
+                              </p>
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
-                    <p className="animate-[fadeIn_1s]">desc</p>
-                  </div>
-                )}
-                {tab == 3 && (
-                  <div className="p-2 w-full h-full">
-                    <div className="flex gap-2 items-center w-full animate-[slideLeft_1s]">
-                      <Cog8ToothIcon className="w-5 h-5" />
-                      <p className="font-bold text-lg uppercase">Skills</p>
+                  )}
+                  {tab == 4 && (
+                    <div className="p-2 w-full h-full">
+                      <div className="flex gap-2 items-center w-full animate-[fadeSlideLeft_1s]">
+                        <TrophyIcon className="w-5 h-5" />
+                        <p className="font-bold text-lg uppercase">
+                          {resumeData[4]?.title}
+                        </p>
+                      </div>
+                      <div className="animate-[fadeIn_1s]">
+                        {resumeData[4]?.achievements?.map((achievement) => {
+                          return (
+                            <div key={achievement}>
+                              <p className="text-lg">{achievement}</p>
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
-                    <p className="animate-[fadeIn_1s]">desc</p>
-                  </div>
-                )}
-                {tab == 4 && (
-                  <div className="p-2 w-full h-full">
-                    <div className="flex gap-2 items-center w-full animate-[slideLeft_1s]">
-                      <TrophyIcon className="w-5 h-5" />
-                      <p className="font-bold text-lg uppercase">
-                        Achievements
-                      </p>
+                  )}
+                  {tab == 5 && (
+                    <div className="p-2 w-full h-full">
+                      <div className="flex gap-2 items-center w-full animate-[fadeSlideLeft_1s]">
+                        <UserIcon className="w-5 h-5" />
+                        <p className="font-bold text-lg uppercase">
+                          {resumeData[5]?.title}
+                        </p>
+                      </div>
+                      <div className="animate-[fadeIn_1s]">desc</div>
                     </div>
-                    <p className="animate-[fadeIn_1s]">desc</p>
-                  </div>
-                )}
-                {tab == 5 && (
-                  <div className="p-2 w-full h-full">
-                    <div className="flex gap-2 items-center w-full animate-[slideLeft_1s]">
-                      <UserIcon className="w-5 h-5" />
-                      <p className="font-bold text-lg uppercase">Referees</p>
-                    </div>
-                    <p className="animate-[fadeIn_1s]">desc</p>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
               {/* Tab Information END */}
             </div>
