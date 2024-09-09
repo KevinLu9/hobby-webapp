@@ -95,14 +95,6 @@ export default function Resume() {
       icon: <Cog8ToothIcon className="w-5 h-5" />,
       skills: [
         {
-          name: "Programming",
-          description: "",
-        },
-        {
-          name: "",
-          description: "",
-        },
-        {
           name: "LEADERSHIP SKILLS",
           description: `- In university, I led engineering projects, which enabled me to demonstrate my proficiency when managing workload and time effectively, while also understanding each team member's strengths and weaknesses.`,
         },
