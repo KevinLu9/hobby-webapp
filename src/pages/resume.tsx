@@ -38,7 +38,7 @@ export default function Resume() {
 - Managed classes from 5 to 15 students.
 - Aided in administrative work.
 - Trained new employees.
-                      `,
+          `,
         },
         {
           company: "Monash Uncrewed Aerial Systems",
