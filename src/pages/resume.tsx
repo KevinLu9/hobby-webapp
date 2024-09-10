@@ -251,6 +251,7 @@ export default function Resume() {
                       </div>
                     </div>
                   )}
+
                   {tab == 4 && (
                     <div className="w-full h-full">
                       <div className="flex gap-2 items-center w-full animate-[fadeSlideLeft_1s]">
