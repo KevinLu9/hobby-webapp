@@ -1,15 +1,15 @@
 {
-  "taskDefinitionArn": "arn:aws:ecs:ap-southeast-4:837761013058:task-definition/hobby-app-task-definition:4",
+  "taskDefinitionArn": "arn:aws:ecs:ap-southeast-4:837761013058:task-definition/hobby-app-task-definition:6",
   "containerDefinitions": [
     {
       "name": "hobby-app",
-      "image": "837761013058.dkr.ecr.ap-southeast-4.amazonaws.com/personal/hobby-app:7bdf0059a9e906fff3319b78b871c87abfb0c027",
+      "image": "837761013058.dkr.ecr.ap-southeast-4.amazonaws.com/personal/hobby-app:dcf7412cdcb2968619fc6dfc6cbd8b4c3ece0038",
       "cpu": 0,
       "portMappings": [
         {
-          "name": "hobby-app-5173-tcp",
-          "containerPort": 5173,
-          "hostPort": 5173,
+          "name": "hobby-app-80-tcp",
+          "containerPort": 80,
+          "hostPort": 80,
           "protocol": "tcp",
           "appProtocol": "http"
         }
@@ -37,7 +37,7 @@
   "taskRoleArn": "arn:aws:iam::837761013058:role/ecsTaskExecutionRole",
   "executionRoleArn": "arn:aws:iam::837761013058:role/ecsTaskExecutionRole",
   "networkMode": "awsvpc",
-  "revision": 4,
+  "revision": 6,
   "volumes": [],
   "status": "ACTIVE",
   "requiresAttributes": [
@@ -81,7 +81,7 @@
     "cpuArchitecture": "X86_64",
     "operatingSystemFamily": "LINUX"
   },
-  "registeredAt": "2024-09-10T06:17:31.863Z",
+  "registeredAt": "2024-09-10T06:49:12.934Z",
   "registeredBy": "arn:aws:iam::837761013058:root",
   "tags": []
 }
