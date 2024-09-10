@@ -147,7 +147,7 @@ export default function Resume() {
               <ResumeButtons {...{ tab, setTab, resumeData }} />
               {/* Side Buttons END */}
               {/* Tab Information START */}
-              <div className="z-[5] flex overflow-y-scroll h-full w-full relative">
+              <div className="z-[5] flex overflow-y-hidden h-full w-full relative">
                 <div className="w-full border-2 border-blue-600 hidden md:block absolute top-0" />
                 <div className="w-full h-full overflow-x-hidden overflow-y-auto p-2">
                   {tab == 0 && (
