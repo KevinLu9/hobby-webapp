@@ -10,7 +10,7 @@ import { LogoLinkedin, LogoGithub } from "@carbon/icons-react";
 export default function Home() {
   const profileDetails = {
     name: "Kevin Lu",
-    address: "3174, Melbourne, Victoria, Australia",
+    address: "Melbourne, Victoria, Australia",
     phone: "+61 424 386 242",
     email: "kevin.lu902@gmail.com",
   };
@@ -60,7 +60,7 @@ export default function Home() {
                 </p>
                 <div className="flex items-center gap-1">
                   <button
-                    className="flex gap-2 items-center btn-xs btn-ghost rounded-sm w-fit"
+                    className="flex gap-2 items-center btn-xs text-sm md:text-lg font-light btn-ghost rounded-sm w-fit"
                     onClick={() => {
                       navigator.clipboard.writeText(profileDetails.address);
                       setAddressCopied(true);
@@ -84,7 +84,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-1">
                   <button
-                    className="flex gap-2 items-center btn-xs btn-ghost rounded-sm w-fit"
+                    className="flex gap-2 items-center btn-xs text-sm md:text-lg font-light btn-ghost rounded-sm w-fit"
                     onClick={() => {
                       navigator.clipboard.writeText(
                         profileDetails.phone.replace(/ /g, "")
@@ -110,7 +110,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-1">
                   <button
-                    className="flex gap-2 items-center btn-xs btn-ghost rounded-sm w-fit"
+                    className="flex gap-2 items-center btn-xs text-sm md:text-lg font-light btn-ghost rounded-sm w-fit"
                     onClick={() => {
                       navigator.clipboard.writeText(profileDetails.email);
                       setEmailCopied(true);
