@@ -140,14 +140,14 @@ export default function Resume() {
             <ClipboardDocumentListIcon className="w-8 h-8 p-0 m-0" />
             <p className="font-bold text-2xl uppercase text-center">Resume</p>
           </div>
-          <div className="w-full md:w-2/3 h-2/3 md:h-fit aspect-video bg-base-100 rounded-md shadow-xl animate-[slideRight_1s]">
-            <div className="w-full h-fit md:h-full flex flex-col md:flex-row">
+          <div className="w-full md:w-2/3 h-[70dvh] md:h-[58dvh] aspect-video bg-base-100 rounded-md shadow-xl animate-[slideRight_1s]">
+            <div className="w-full h-full md:h-full flex flex-col md:flex-row">
               {/* <FlipCard front={<>FRONT</>} back={<>BACK</>} /> */}
               {/* Side Buttons START */}
               <ResumeButtons {...{ tab, setTab, resumeData }} />
               {/* Side Buttons END */}
               {/* Tab Information START */}
-              <div className="z-[5] w-full h-[58dvh] relative">
+              <div className="z-[5] flex overflow-y-scroll h-full w-full relative">
                 <div className="w-full border-2 border-blue-600 hidden md:block absolute top-0" />
                 <div className="w-full h-full overflow-x-hidden overflow-y-auto p-2">
                   {tab == 0 && (

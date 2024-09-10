@@ -68,9 +68,7 @@ export default function Navbar(_: any) {
             setIsSidebarOpen
           )}
         </div>
-        <div className="w-full h-full">
-          <Outlet />
-        </div>
+        <Outlet />
       </div>
     </>
   );
