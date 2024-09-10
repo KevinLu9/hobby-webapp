@@ -22,7 +22,6 @@ export default function Resume() {
                     opportunities. My primary goal is to expand my skills and knowledge by addressing complex challenges. As a highly self motivated individual, I am committed to continuous improvement and excellence in my work. I am focused on advancing
                     my career as a professional engineer, IT worker or in related fields where my expertise in hardware or software can
                     be effectively utilized.
-
       `,
     },
     {
