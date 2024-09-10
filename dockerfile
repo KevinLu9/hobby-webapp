@@ -4,7 +4,6 @@ WORKDIR /app
 COPY package*.json ./
 RUN NODE_ENV=development npm install --quiet
 COPY . ./
-RUN chown -R app /app
 RUN npm run build
 
 # production stage
