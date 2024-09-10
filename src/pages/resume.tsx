@@ -18,11 +18,11 @@ export default function Resume() {
     {
       title: "Career Objective",
       icon: <RocketLaunchIcon className="w-5 h-5" />,
-      description: `I am a recent university graduate looking for full-time employment. I have a background in technology, coding and engineering.
-      My goal is to currently broaden my skills and knowledge by tackling difficult problems. Being a very self-driven person, I
-      constantly pursue improvement and refinement in the work I do. As a result, I aspire to be diligent in my work. My
-      current goal is to develop myself as a professional engineer or any other related fields that can make use of my hardware
-      and software skills.
+      description: `I am a recent graduate with a strong foundation in technology, coding, and engineering, actively seeking full-time
+                    opportunities. My primary goal is to expand my skills and knowledge by addressing complex challenges. As a highly self motivated individual, I am committed to continuous improvement and excellence in my work. I am focused on advancing
+                    my career as a professional engineer, IT worker or in related fields where my expertise in hardware or software can
+                    be effectively utilized.
+
       `,
     },
     {
