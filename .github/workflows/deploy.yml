@@ -39,8 +39,11 @@ jobs:
           docker tag ${{ secrets.ECR_REPOSITORY }}:latest ${{ secrets.ECR_REPOSITORY }}:latest
           docker push ${{ secrets.ECR_REPOSITORY }}:latest
 
-      # Step 6: Update ECS service to use the new image
-      - name: Deploy to ECS
+      # Step 6: Update ECS service with the new image
+      - name: Update ECS service
         run: |
-          ecs-cli configure --cluster ${{ secrets.CLUSTER_NAME }} --default-launch-type FARGATE --region ${{ secrets.AWS_REGION }}
-          ecs-cli compose --file docker-compose.yml service up --create-log-groups --cluster-config ${{ secrets.CLUSTER_NAME }}
+          aws ecs update-service \
+            --cluster ${{ secrets.CLUSTER_NAME }} \
+            --service ${{ secrets.SERVICE_NAME }} \
+            --force-new-deployment \
+            --region ${{ secrets.AWS_REGION }}
