@@ -100,7 +100,6 @@ export default function Home() {
                       {profileDetails.phone}
                     </p>
                   </button>
-
                   <div
                     className={`flex items-center gap-1 animate-[bounce_0.5s_infinite] ${!phoneCopied && "invisible"}`}
                   >
