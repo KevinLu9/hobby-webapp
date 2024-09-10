@@ -2,7 +2,7 @@
 FROM node:18-alpine as build-stage
 WORKDIR /app
 COPY package*.json ./
-RUN NODE_ENV=development npm install --quiet
+RUN npm install --quiet
 COPY . ./
 RUN npm run build
 

@@ -16,8 +16,7 @@ interface IPath {
   icon: JSX.Element;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function Navbar() {
+export default function Navbar(_: any) {
   const paths = [
     {
       name: "Home",

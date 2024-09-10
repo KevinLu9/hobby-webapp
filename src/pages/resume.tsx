@@ -1,6 +1,6 @@
 import { ClipboardDocumentListIcon } from "@heroicons/react/24/solid";
 import "../App.css";
-import FlipCard from "../components/FlipCard";
+// import FlipCard from "../components/FlipCard";
 import dayjs from "dayjs";
 import {
   BuildingLibraryIcon,
@@ -8,8 +8,6 @@ import {
   RocketLaunchIcon,
   TrophyIcon,
   UserIcon,
-  ChevronRightIcon,
-  ChevronLeftIcon,
 } from "@heroicons/react/24/outline";
 import { RecentlyViewed } from "@carbon/icons-react";
 import { useState } from "react";
