@@ -5,7 +5,13 @@ export default function Referees({ referees }: { referees: IReferees }) {
         {referees?.icon}
         <p className="font-bold text-lg uppercase">{referees?.title}</p>
       </div>
-      <div className="animate-[fadeIn_1s] p-2">{referees?.description}</div>
+      <div className="animate-[fadeIn_1s] p-2">
+        <div className="w-full p-4 flex items-center justify-center">
+          <p className="font-bold text-lg text-blue-600">
+            {referees?.description}
+          </p>
+        </div>
+      </div>
     </>
   );
 }
