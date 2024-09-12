@@ -9,13 +9,19 @@ import {
   TrophyIcon,
   UserIcon,
 } from "@heroicons/react/24/outline";
-import { RecentlyViewed } from "@carbon/icons-react";
+import { RecentlyViewed, UserCertification } from "@carbon/icons-react";
 import { useState } from "react";
-import ResumeButtons from "../components/ResumeButtons";
+import ResumeButtons from "../components/resume/ResumeButtons";
+import CareerObjective from "../components/resume/CareerObjective";
+import CareerHistory from "../components/resume/CareerHistory";
+import Education from "../components/resume/Education";
+import Skills from "../components/resume/Skills";
+import Achievements from "../components/resume/Achievements";
+import Referees from "../components/resume/Referees";
 
 export default function Resume() {
-  const resumeData = [
-    {
+  const resumeData: IResumeData = {
+    careerObjective: {
       title: "Career Objective",
       icon: <RocketLaunchIcon className="w-5 h-5" />,
       description: `I am a recent graduate with a strong foundation in technology, coding, and engineering, actively seeking full-time
@@ -24,7 +30,7 @@ export default function Resume() {
                     be effectively utilized.
       `,
     },
-    {
+    careerHistory: {
       title: "Career History",
       icon: <RecentlyViewed className="w-5 h-5" />,
       history: [
@@ -33,7 +39,7 @@ export default function Resume() {
           start_date: "2018-12-01",
           finish_date: "2021-09-01",
           present: false,
-          job_title: " Primary and Secondary Tutor",
+          job_title: "Primary and Secondary Tutor",
           description: `- Tutored children in primary and secondary school
 - Managed classes from 5 to 15 students.
 - Aided in administrative work.
@@ -45,7 +51,7 @@ export default function Resume() {
           start_date: "2023-04-01",
           finish_date: "2024-01-01",
           present: false,
-          job_title: " Primary and Secondary Tutor",
+          job_title: "Avionics Technical Member",
           description: `- Programming software that interfaces with the drone to provide live telemetry to users (OpenCV, Mavlink, Mission Planner).
 - Sending and requesting data using RF technologies (900MHz).
 - Frontend Development (VueJS, MaterialUI).
@@ -55,18 +61,19 @@ export default function Resume() {
         {
           company: "Techreative",
           start_date: "2023-05-01",
-          finish_date: null,
+          finish_date: undefined,
           present: true,
           job_title: "Software Engineer",
-          description: `- Programming software that interfaces with the drone to provide live telemetry to users (OpenCV, Mavlink, Mission Planner).
-- Sending and requesting data using RF technologies (900MHz).
-- Frontend Development (VueJS, MaterialUI).
-- Backend Development (Python WebSockets, RESTful API).
+          description: `- Backend Database Design (MySQL, PostgreSQL and MongoDB).
+- Backend Development (MeteorJS, Python Django, SwaggerUI, RESTful API, SOAP).
+- Frontend Development using Javascript, HTML and CSS (ReactJS, VueJS, SvelteJS, TailwindCSS).
+- CI/CD (Linux, Docker, Github Actions).
+
                       `,
         },
       ],
     },
-    {
+    education: {
       title: "Education",
       icon: <BuildingLibraryIcon className="w-5 h-5" />,
       education: [
@@ -87,7 +94,7 @@ export default function Resume() {
         },
       ],
     },
-    {
+    skills: {
       title: "Skills",
       icon: <Cog8ToothIcon className="w-5 h-5" />,
       skills: [
@@ -118,7 +125,7 @@ export default function Resume() {
         },
       ],
     },
-    {
+    achievements: {
       title: "Achievements",
       icon: <TrophyIcon className="w-5 h-5" />,
       achievements: [
@@ -127,10 +134,45 @@ export default function Resume() {
         "Vice-Chancellor's Scholarship for Excellence at Monash (2019).",
       ],
     },
-  ];
+    referees: {
+      title: "Referees",
+      icon: <UserCertification className="w-5 h-5" />,
+      description: "Available Upon Request",
+    },
+  };
 
   const [tab, setTab] = useState(0);
+  const renderTab = () => {
+    let tabElement;
+    switch (tab) {
+      case 0:
+        tabElement = (
+          <CareerObjective careerObjective={resumeData?.careerObjective} />
+        );
+        break;
+      case 1:
+        tabElement = (
+          <CareerHistory careerHistory={resumeData?.careerHistory} />
+        );
+        break;
+      case 2:
+        tabElement = <Education education={resumeData?.education} />;
+        break;
+      case 3:
+        tabElement = <Skills skills={resumeData?.skills} />;
+        break;
 
+      case 4:
+        tabElement = <Achievements achievements={resumeData?.achievements} />;
+        break;
+      case 5:
+        tabElement = <Referees referees={resumeData?.referees} />;
+        break;
+      default:
+        <CareerObjective careerObjective={resumeData?.careerObjective} />;
+    }
+    return <div className="w-full h-full">{tabElement}</div>;
+  };
   return (
     <>
       <div className="flex flex-col h-screen w-full overflow-hidden">
@@ -141,147 +183,13 @@ export default function Resume() {
           </div>
           <div className="w-full md:w-2/3 h-[70dvh] md:h-[58dvh] aspect-video bg-base-100 rounded-md shadow-xl animate-[slideRight_1s]">
             <div className="w-full h-full md:h-full flex flex-col md:flex-row">
-              {/* <FlipCard front={<>FRONT</>} back={<>BACK</>} /> */}
-              {/* Side Buttons START */}
               <ResumeButtons {...{ tab, setTab, resumeData }} />
-              {/* Side Buttons END */}
-              {/* Tab Information START */}
               <div className="z-[5] flex overflow-y-hidden h-full w-full relative">
                 <div className="w-full border-2 border-blue-600 hidden md:block absolute top-0" />
                 <div className="w-full h-full overflow-x-hidden overflow-y-auto p-2">
-                  {tab == 0 && (
-                    <div className="w-full h-full">
-                      <div className="flex gap-2 items-center animate-[fadeSlideLeft_1s]">
-                        <RocketLaunchIcon className="w-5 h-5" />
-                        <p className="font-bold text-lg uppercase">
-                          {resumeData[0]?.title}
-                        </p>
-                      </div>
-                      <div className="w-full h-auto lg:h-5/6 p-4">
-                        <p className="animate-[fadeIn_1s] border shadow-md rounded-md p-4">
-                          {resumeData[0]?.description}
-                        </p>
-                      </div>
-                    </div>
-                  )}
-                  {tab == 1 && (
-                    <div className="w-full h-full">
-                      <div className="flex gap-2 items-center animate-[fadeSlideLeft_1s]">
-                        <RecentlyViewed className="w-5 h-5" />
-                        <p className="font-bold text-lg uppercase">
-                          {resumeData[1]?.title}
-                        </p>
-                      </div>
-                      <div className="animate-[fadeIn_1s]">
-                        {resumeData[1]?.history?.map((career) => {
-                          return (
-                            <div key={career.company}>
-                              <p className="font-bold text-lg underline">
-                                {career?.company}
-                              </p>
-                              <p className="font-bold uppercase italic">
-                                {career?.job_title}
-                              </p>
-                              <p className="text-sm">
-                                ({dayjs(career?.start_date).format("MMM YYYY")}{" "}
-                                -{" "}
-                                {dayjs(career?.finish_date).format("MMM YYYY")})
-                              </p>
-                              <p className="whitespace-pre text-wrap">
-                                {career?.description}
-                              </p>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
-                  {tab == 2 && (
-                    <div className="w-full h-full">
-                      <div className="flex gap-2 items-center w-full animate-[fadeSlideLeft_1s]">
-                        <BuildingLibraryIcon className="w-5 h-5" />
-                        <p className="font-bold text-lg uppercase">
-                          {resumeData[2]?.title}
-                        </p>
-                      </div>
-                      <div className="animate-[fadeIn_1s]">
-                        {resumeData[2]?.education?.map((edu) => {
-                          return (
-                            <div key={edu?.institution}>
-                              <p className="font-bold text-lg underline">
-                                {edu?.institution}
-                              </p>
-                              <p className="text-sm">
-                                ({dayjs(edu?.start_date).format("MMM YYYY")} -{" "}
-                                {dayjs(edu?.finish_date).format("MMM YYYY")})
-                              </p>
-                              <p className="whitespace-pre text-wrap">
-                                {edu?.description}
-                              </p>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
-                  {tab == 3 && (
-                    <div className="w-full h-full">
-                      <div className="flex gap-2 items-center w-full animate-[fadeSlideLeft_1s]">
-                        <Cog8ToothIcon className="w-5 h-5" />
-                        <p className="font-bold text-lg uppercase">
-                          {resumeData[3]?.title}
-                        </p>
-                      </div>
-                      <div className="animate-[fadeIn_1s]">
-                        {resumeData[3]?.skills?.map((skill) => {
-                          return (
-                            <div key={skill?.name}>
-                              <p className="font-bold text-lg underline">
-                                {skill?.name}
-                              </p>
-                              <p className="whitespace-pre text-wrap">
-                                {skill?.description}
-                              </p>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
-
-                  {tab == 4 && (
-                    <div className="w-full h-full">
-                      <div className="flex gap-2 items-center w-full animate-[fadeSlideLeft_1s]">
-                        <TrophyIcon className="w-5 h-5" />
-                        <p className="font-bold text-lg uppercase">
-                          {resumeData[4]?.title}
-                        </p>
-                      </div>
-                      <div className="animate-[fadeIn_1s]">
-                        {resumeData[4]?.achievements?.map((achievement) => {
-                          return (
-                            <div key={achievement}>
-                              <p className="text-lg">{achievement}</p>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
-                  {tab == 5 && (
-                    <div className="p-2 w-full h-full">
-                      <div className="flex gap-2 items-center w-full animate-[fadeSlideLeft_1s]">
-                        <UserIcon className="w-5 h-5" />
-                        <p className="font-bold text-lg uppercase">
-                          {resumeData[5]?.title}
-                        </p>
-                      </div>
-                      <div className="animate-[fadeIn_1s]">desc</div>
-                    </div>
-                  )}
+                  {renderTab()}
                 </div>
               </div>
-              {/* Tab Information END */}
             </div>
           </div>
         </div>

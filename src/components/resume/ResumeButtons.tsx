@@ -7,12 +7,12 @@ export default function ResumeButtons({
 }: {
   tab: number;
   setTab: React.Dispatch<React.SetStateAction<number>>;
-  resumeData: Array<any>;
+  resumeData: IResumeData;
 }) {
   const handleChangeTab = (index: number) => {
     setTab(index);
     document
-      .getElementById(resumeData[index].title)
+      .getElementById(Object.values(resumeData)[index].title)
       ?.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
   };
 
@@ -27,7 +27,7 @@ export default function ResumeButtons({
         />
       </div>
       <div className="w-max flex flex-row md:flex-col gap-1 overflow-x-auto pb-1">
-        {resumeData.map((page, index) => {
+        {Object.values(resumeData).map((page, index) => {
           return (
             <button
               key={index}
@@ -50,7 +50,9 @@ export default function ResumeButtons({
         <ChevronRightIcon
           className="w-8 h-8 text-black bg-white dark:text-white dark:bg-gray-800 cursor-pointer block md:hidden"
           onClick={() => {
-            handleChangeTab(Math.min(tab + 1, resumeData?.length - 1));
+            handleChangeTab(
+              Math.min(tab + 1, Object.keys(resumeData)?.length - 1)
+            );
           }}
         />
       </div>
