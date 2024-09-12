@@ -1,13 +1,11 @@
 import { ClipboardDocumentListIcon } from "@heroicons/react/24/solid";
 import "../App.css";
 // import FlipCard from "../components/FlipCard";
-import dayjs from "dayjs";
 import {
   BuildingLibraryIcon,
   Cog8ToothIcon,
   RocketLaunchIcon,
   TrophyIcon,
-  UserIcon,
 } from "@heroicons/react/24/outline";
 import { RecentlyViewed, UserCertification } from "@carbon/icons-react";
 import { useState } from "react";
