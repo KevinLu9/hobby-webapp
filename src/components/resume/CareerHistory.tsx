@@ -62,7 +62,7 @@ export default function CareerHistory({
         {/* Career Information START */}
         <div
           key={selectedHistoryIndex}
-          className="w-full h-full flex flex-col animate-[fadeSlideRight_1s] z-[0] pl-2 ml-2"
+          className="w-full h-full flex flex-col animate-[fadeSlideRight_1s] z-[0] lg:pl-2 lg:ml-2"
         >
           <div className="flex gap-2 items-center">
             <BuildingOffice2Icon className="w-6 h-6" />
