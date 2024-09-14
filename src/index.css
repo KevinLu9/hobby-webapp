@@ -95,6 +95,12 @@ a {
   100% { opacity: 1; transform: translateX(0%); }
 }
 
+@keyframes rotateIn {
+  0% { transform: rotate(-360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+
 .animation-delay-100 {
   animation-delay: 100ms;
 }

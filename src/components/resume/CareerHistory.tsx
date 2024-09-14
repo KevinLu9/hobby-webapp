@@ -33,6 +33,31 @@ export default function CareerHistory({
     careerHistory?.history &&
       setSelectedHistory(careerHistory?.history[selectedHistoryIndex]);
   }, [selectedHistoryIndex, careerHistory]);
+
+  const renderJobImage = (index) => {
+    if (index == 0) {
+      return (
+        <img
+          src="sac.png"
+          className="w-20 h-20 rounded-full p-2 border animate-[rotateIn_1.5s] bg-white z-[1]"
+        />
+      );
+    } else if (index == 1) {
+      return (
+        <img
+          src="muas.png"
+          className="w-20 h-20 rounded-full border animate-[rotateIn_1.5s] z-[1]"
+        />
+      );
+    } else if (index == 2) {
+      return (
+        <img
+          src="techreative.png"
+          className="w-20 h-20 rounded-full p-2 border animate-[rotateIn_1.5s] bg-white z-[1]"
+        />
+      );
+    }
+  };
   return (
     <>
       <div className="flex gap-2 items-center animate-[fadeSlideLeft_1s]">
@@ -64,9 +89,9 @@ export default function CareerHistory({
           key={selectedHistoryIndex}
           className="w-full h-full flex flex-col animate-[fadeSlideRight_1s] z-[0] lg:pl-2 lg:ml-2"
         >
-          <div className="flex gap-2 items-center">
-            <BuildingOffice2Icon className="w-6 h-6" />
-            <p className="font-bold text-lg underline">
+          <div className="flex gap-2 items-center pb-2">
+            {renderJobImage(selectedHistoryIndex)}
+            <p className="font-bold text-xl underline animate-[slideRight_1.5s] z-[0]">
               {selectedHistory?.company}
             </p>
           </div>
@@ -90,7 +115,7 @@ export default function CareerHistory({
           {/* First Career START */}
           {selectedHistoryIndex == 0 && (
             <div className="flex w-full h-full flex-wrap pb-4">
-              <div className="w-full md:w-1/2 aspect-video p-2">
+              <div className="w-full md:w-1/2 aspect-video p-2 animation-delay-100 animate-[fadeIn_1s]">
                 <FlipCard
                   front={
                     <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
@@ -116,7 +141,7 @@ export default function CareerHistory({
                   }
                 />
               </div>
-              <div className="w-full md:w-1/2 aspect-video p-2">
+              <div className="w-full md:w-1/2 aspect-video p-2 animation-delay-100 animate-[fadeIn_1s]">
                 <FlipCard
                   front={
                     <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
@@ -137,7 +162,7 @@ export default function CareerHistory({
                   }
                 />
               </div>
-              <div className="w-full md:w-1/2 aspect-video p-2">
+              <div className="w-full md:w-1/2 aspect-video p-2 animation-delay-100 animate-[fadeIn_1s]">
                 <FlipCard
                   front={
                     <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
@@ -160,7 +185,7 @@ export default function CareerHistory({
                   }
                 />
               </div>
-              <div className="w-full md:w-1/2 aspect-video p-2">
+              <div className="w-full md:w-1/2 aspect-video p-2 animation-delay-100 animate-[fadeIn_1s]">
                 <FlipCard
                   front={
                     <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
@@ -188,7 +213,7 @@ export default function CareerHistory({
           {/* Second Career START */}
           {selectedHistoryIndex == 1 && (
             <div className="flex w-full h-full flex-wrap pb-4">
-              <div className="w-full md:w-1/2 aspect-video p-2">
+              <div className="w-full md:w-1/2 aspect-video p-2 animation-delay-100 animate-[fadeIn_1s]">
                 <FlipCard
                   front={
                     <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
@@ -211,7 +236,7 @@ export default function CareerHistory({
                   }
                 />
               </div>
-              <div className="w-full md:w-1/2 aspect-video p-2">
+              <div className="w-full md:w-1/2 aspect-video p-2 animation-delay-100 animate-[fadeIn_1s]">
                 <FlipCard
                   front={
                     <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
@@ -234,7 +259,7 @@ export default function CareerHistory({
                   }
                 />
               </div>
-              <div className="w-full md:w-1/2 aspect-video p-2">
+              <div className="w-full md:w-1/2 aspect-video p-2 animation-delay-100 animate-[fadeIn_1s]">
                 <FlipCard
                   front={
                     <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
@@ -256,7 +281,7 @@ export default function CareerHistory({
                   }
                 />
               </div>
-              <div className="w-full md:w-1/2 aspect-video p-2">
+              <div className="w-full md:w-1/2 aspect-video p-2 animation-delay-100 animate-[fadeIn_1s]">
                 <FlipCard
                   front={
                     <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
@@ -285,7 +310,7 @@ export default function CareerHistory({
           {/* Third Career START */}
           {selectedHistoryIndex == 2 && (
             <div className="flex w-full h-full flex-wrap pb-4">
-              <div className="w-full md:w-1/2 aspect-video p-2">
+              <div className="w-full md:w-1/2 aspect-video p-2 animation-delay-100 animate-[fadeIn_1s]">
                 <FlipCard
                   front={
                     <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
@@ -307,7 +332,7 @@ export default function CareerHistory({
                   }
                 />
               </div>
-              <div className="w-full md:w-1/2 aspect-video p-2">
+              <div className="w-full md:w-1/2 aspect-video p-2 animation-delay-100 animate-[fadeIn_1s]">
                 <FlipCard
                   front={
                     <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
@@ -329,7 +354,7 @@ export default function CareerHistory({
                   }
                 />
               </div>
-              <div className="w-full md:w-1/2 aspect-video p-2">
+              <div className="w-full md:w-1/2 aspect-video p-2 animation-delay-100 animate-[fadeIn_1s]">
                 <FlipCard
                   front={
                     <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
@@ -351,7 +376,7 @@ export default function CareerHistory({
                   }
                 />
               </div>
-              <div className="w-full md:w-1/2 aspect-video p-2">
+              <div className="w-full md:w-1/2 aspect-video p-2 animation-delay-100 animate-[fadeIn_1s]">
                 <FlipCard
                   front={
                     <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
