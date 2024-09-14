@@ -1,5 +1,4 @@
 import {
-  BuildingOffice2Icon,
   CalendarDaysIcon,
   CircleStackIcon,
   ComputerDesktopIcon,
@@ -34,7 +33,7 @@ export default function CareerHistory({
       setSelectedHistory(careerHistory?.history[selectedHistoryIndex]);
   }, [selectedHistoryIndex, careerHistory]);
 
-  const renderJobImage = (index) => {
+  const renderJobImage = (index: number) => {
     if (index == 0) {
       return (
         <img
