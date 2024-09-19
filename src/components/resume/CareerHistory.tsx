@@ -241,8 +241,8 @@ export default function CareerHistory({
                     <div className="flex flex-col gap-2">
                       <p className="font-bold">Backend Development</p>
                       <p className="text-sm">
-                        Created a backend to relay live telemtry to the frontend
-                        user interface.
+                        Created a backend to relay live telemetry to the
+                        frontend user interface.
                       </p>
                       <p className="text-sm">
                         Backend was created in Python using technologies such
