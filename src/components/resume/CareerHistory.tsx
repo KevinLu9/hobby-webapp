@@ -72,7 +72,7 @@ export default function CareerHistory({
             {
               <img
                 src={selectedHistory?.company_icon}
-                className={`w-20 h-20 rounded-full border animate-[rotateIn_1.5s] z-[1] ${selectedHistoryIndex != 1 && "p-2"}`}
+                className={`w-20 h-20 rounded-full border animate-[rotateIn_1.5s] z-[1] bg-white ${selectedHistoryIndex != 1 && "p-2"}`}
               />
             }
             <p className="font-bold text-xl underline animate-[slideRight_1.5s] z-[0]">
