@@ -43,7 +43,7 @@ export default function CareerHistory({
         </div>
       </div>
       <div className="animate-[fadeIn_1s] p-2 flex flex-col xl:flex-row gap-2 card-h-full overflow-y-auto">
-        <div className="h-fit xl:h-full xl:border-r md:-mx-4 px-4 z-[1] bg-base-100 flex flex-row items-center justify-center">
+        <div className="h-fit xl:h-full xl:border-r z-[1] bg-base-100 flex flex-row items-center justify-center">
           {/* Career Selector START */}
           <ul className="steps steps-horizontal xl:steps-vertical">
             {careerHistory?.history?.map((career, index) => {
