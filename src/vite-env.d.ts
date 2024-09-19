@@ -19,6 +19,7 @@ interface ICareerObjective {
 
 interface IHistory {
   company?: string,
+  company_icon?: string,
   start_date?: string,
   finish_date?: string,
   present?:boolean,

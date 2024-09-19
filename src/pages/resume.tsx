@@ -33,7 +33,35 @@ export default function Resume() {
       icon: <RecentlyViewed className="w-5 h-5" />,
       history: [
         {
+          company: "Techreative",
+          company_icon: "techreative.png",
+          start_date: "2023-05-01",
+          finish_date: undefined,
+          present: true,
+          job_title: "Software Engineer",
+          description: `- Backend Database Design (MySQL, PostgreSQL and MongoDB).
+        - Backend Development (MeteorJS, Python Django, SwaggerUI, RESTful API, SOAP).
+        - Frontend Development using Javascript, HTML and CSS (ReactJS, VueJS, SvelteJS, TailwindCSS).
+        - CI/CD (Linux, Docker, Github Actions).
+        
+                      `,
+        },
+        {
+          company: "Monash Uncrewed Aerial Systems",
+          company_icon: "muas.png",
+          start_date: "2023-04-01",
+          finish_date: "2024-01-01",
+          present: false,
+          job_title: "Avionics Technical Member",
+          description: `- Programming software that interfaces with the drone to provide live telemetry to users (OpenCV, Mavlink, Mission Planner).
+          - Sending and requesting data using RF technologies (900MHz).
+          - Frontend Development (VueJS, MaterialUI).
+          - Backend Development (Python WebSockets, RESTful API).
+          `,
+        },
+        {
           company: "School of Academic Coaching",
+          company_icon: "sac.png",
           start_date: "2018-12-01",
           finish_date: "2021-09-01",
           present: false,
@@ -43,31 +71,6 @@ export default function Resume() {
 - Aided in administrative work.
 - Trained new employees.
           `,
-        },
-        {
-          company: "Monash Uncrewed Aerial Systems",
-          start_date: "2023-04-01",
-          finish_date: "2024-01-01",
-          present: false,
-          job_title: "Avionics Technical Member",
-          description: `- Programming software that interfaces with the drone to provide live telemetry to users (OpenCV, Mavlink, Mission Planner).
-- Sending and requesting data using RF technologies (900MHz).
-- Frontend Development (VueJS, MaterialUI).
-- Backend Development (Python WebSockets, RESTful API).
-                      `,
-        },
-        {
-          company: "Techreative",
-          start_date: "2023-05-01",
-          finish_date: undefined,
-          present: true,
-          job_title: "Software Engineer",
-          description: `- Backend Database Design (MySQL, PostgreSQL and MongoDB).
-- Backend Development (MeteorJS, Python Django, SwaggerUI, RESTful API, SOAP).
-- Frontend Development using Javascript, HTML and CSS (ReactJS, VueJS, SvelteJS, TailwindCSS).
-- CI/CD (Linux, Docker, Github Actions).
-
-                      `,
         },
       ],
     },
@@ -182,9 +185,8 @@ export default function Resume() {
           <div className="w-full md:w-2/3 h-[70dvh] md:h-[58dvh] aspect-video bg-base-100 rounded-md shadow-xl animate-[slideRight_1s]">
             <div className="w-full h-full md:h-full flex flex-col md:flex-row">
               <ResumeButtons {...{ tab, setTab, resumeData }} />
-              <div className="z-[5] flex overflow-y-hidden h-full w-full relative">
-                <div className="w-full border-2 border-blue-600 hidden md:block absolute top-0" />
-                <div className="w-full h-full overflow-x-hidden overflow-y-auto p-2">
+              <div className="z-[5] flex overflow-y-hidden h-full w-full relative md:rounded-tr-md">
+                <div className="w-full h-full overflow-x-hidden">
                   {renderTab()}
                 </div>
               </div>

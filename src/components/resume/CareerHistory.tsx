@@ -13,6 +13,7 @@ import {
   AppConnectivity,
   Chemistry,
   ConnectionSignal,
+  Education,
   InfinitySymbol,
   TransmissionLte,
 } from "@carbon/icons-react";
@@ -33,45 +34,24 @@ export default function CareerHistory({
       setSelectedHistory(careerHistory?.history[selectedHistoryIndex]);
   }, [selectedHistoryIndex, careerHistory]);
 
-  const renderJobImage = (index: number) => {
-    if (index == 0) {
-      return (
-        <img
-          src="sac.png"
-          className="w-20 h-20 rounded-full p-2 border animate-[rotateIn_1.5s] bg-white z-[1]"
-        />
-      );
-    } else if (index == 1) {
-      return (
-        <img
-          src="muas.png"
-          className="w-20 h-20 rounded-full border animate-[rotateIn_1.5s] z-[1]"
-        />
-      );
-    } else if (index == 2) {
-      return (
-        <img
-          src="techreative.png"
-          className="w-20 h-20 rounded-full p-2 border animate-[rotateIn_1.5s] bg-white z-[1]"
-        />
-      );
-    }
-  };
   return (
     <>
-      <div className="flex gap-2 items-center animate-[fadeSlideLeft_1s]">
-        {careerHistory?.icon}
-        <p className="font-bold text-lg uppercase">{careerHistory?.title}</p>
+      <div className="bg-blue-600 dark:bg-blue-800 text-white dark:text-gray-200 p-2 pl-4">
+        <div className="animate-[fadeSlideLeft_1s] w-full flex gap-2 items-center justify-center md:justify-start">
+          {careerHistory?.icon}
+          <p className="font-bold text-lg uppercase">{careerHistory?.title}</p>
+        </div>
       </div>
-      <div className="animate-[fadeIn_1s] h-[95%] p-2 flex flex-col lg:flex-row gap-2">
-        <div className="h-fit lg:h-full w-full lg:w-max lg:border-r md:-mx-4 px-4 z-[1] bg-base-100">
+      <div className="animate-[fadeIn_1s] p-2 flex flex-col xl:flex-row gap-2 card-h-full overflow-y-auto">
+        <div className="h-fit xl:h-full xl:border-r md:-mx-4 px-4 z-[1] bg-base-100 flex flex-row items-center justify-center">
           {/* Career Selector START */}
-          <ul className="steps steps-horizontal lg:steps-vertical">
+          <ul className="steps steps-horizontal xl:steps-vertical">
             {careerHistory?.history?.map((career, index) => {
               return (
                 <li
                   key={index}
-                  className={`step lg:w-1/4 text-sm md:text-md font-semibold cursor-pointer ${index <= selectedHistoryIndex ? "step-info" : ""}`}
+                  data-content="★"
+                  className={`step xl:w-1/4 text-sm md:text-md font-semibold cursor-pointer ${index <= selectedHistoryIndex ? "step-info" : ""}`}
                   onClick={() => {
                     setSelectedHistoryTab(Number(index));
                   }}
@@ -86,10 +66,15 @@ export default function CareerHistory({
         {/* Career Information START */}
         <div
           key={selectedHistoryIndex}
-          className="w-full h-full flex flex-col animate-[fadeSlideRight_1s] z-[0] lg:pl-2 lg:ml-2"
+          className="w-full h-full flex flex-col animate-[fadeSlideRight_1s] z-[0] xl:pl-2 xl:ml-2"
         >
           <div className="flex gap-2 items-center pb-2">
-            {renderJobImage(selectedHistoryIndex)}
+            {
+              <img
+                src={selectedHistory?.company_icon}
+                className={`w-20 h-20 rounded-full border animate-[rotateIn_1.5s] z-[1] ${selectedHistoryIndex != 1 && "p-2"}`}
+              />
+            }
             <p className="font-bold text-xl underline animate-[slideRight_1.5s] z-[0]">
               {selectedHistory?.company}
             </p>
@@ -118,23 +103,21 @@ export default function CareerHistory({
                 <FlipCard
                   front={
                     <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
-                      <Chemistry className="w-10 h-10" />
-                      <p className="font-bold">Tutored in STEM Subjects</p>
+                      <ComputerDesktopIcon className="w-10 h-10" />
+                      <p className="font-bold text-md md:text-xs lg:text-lg">
+                        Frontend Development
+                      </p>
                     </div>
                   }
                   back={
-                    <div className="text-xs">
-                      <p className="font-bold">Subjects</p>
-                      <p>Year 11/12 VCE Physics</p>
-                      <p>Year 11/12 VCE Chemistry</p>
-                      <p>Year 11/12 VCE Further Maths.</p>
-                      <p>Year 10 Maths</p>
-                      <p>Year 6 Maths + English</p>
-                      <p className="pt-2">
-                        <b>Substituted for</b> <br />
-                        Year 11/12 VCE Methods, <br /> Year 11/12 VCE
-                        Specialist, <br /> Year 10 Science, <br />
-                        Year 4 Maths + English
+                    <div className="flex flex-col gap-2">
+                      <p className="font-bold">Frontend Development</p>
+                      <p className="text-sm">
+                        Worked on creating data driven UI/UX for clients to
+                        optimise, standardise and automate company processes.
+                      </p>
+                      <p className="text-sm">
+                        ReactJS, VueJS, SvelteJS, TailwindCSS, and TypeScript.
                       </p>
                     </div>
                   }
@@ -144,41 +127,45 @@ export default function CareerHistory({
                 <FlipCard
                   front={
                     <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
-                      <UserGroupIcon className="w-10 h-10" />
-                      <p className="font-bold">Classes of up to 15 Students</p>
+                      <CircleStackIcon className="w-10 h-10" />
+                      <p className="font-bold text-md md:text-xs lg:text-lg">
+                        Backend Development
+                      </p>
+                    </div>
+                  }
+                  back={
+                    <div className="flex flex-col gap-2">
+                      <p className="font-bold">Backend Development</p>
+                      <p className="text-sm">
+                        Worked on designing server-side infrastructure to
+                        provide ease of use APIs for frontend development.
+                      </p>
+                      <p className="text-sm">
+                        MeteorJS, Python Django, REST APIs, and Soap APIs.
+                      </p>
+                    </div>
+                  }
+                />
+              </div>
+              <div className="w-full md:w-1/2 aspect-video p-2 animation-delay-100 animate-[fadeIn_1s]">
+                <FlipCard
+                  front={
+                    <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
+                      <AppConnectivity className="w-10 h-10" />
+                      <p className="font-bold text-md md:text-xs lg:text-lg">
+                        Database Design
+                      </p>
                     </div>
                   }
                   back={
                     <div className="flex flex-col gap-1">
-                      <p className="font-bold">Classes of up to 15 Students</p>
+                      <p className="font-bold text-sm">Database Design</p>
                       <p className="text-sm">
-                        Handled classes between 5 to 15 students.
+                        Designed and developed Relational and Non-Relational
+                        databases based on client requirements.
                       </p>
                       <p className="text-sm">
-                        Catered for students with varying academic skills.
-                      </p>
-                    </div>
-                  }
-                />
-              </div>
-              <div className="w-full md:w-1/2 aspect-video p-2 animation-delay-100 animate-[fadeIn_1s]">
-                <FlipCard
-                  front={
-                    <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
-                      <NewspaperIcon className="w-10 h-10" />
-                      <p className="font-bold">Administrative Work</p>
-                    </div>
-                  }
-                  back={
-                    <div className="flex flex-col gap-2">
-                      <p className="font-bold">Administrative Work</p>
-                      <p className="text-sm">
-                        Created solutions for fellow tutors for various
-                        subjects.
-                      </p>
-                      <p className="text-sm">
-                        Handled printing of worksheets for a large quantity of
-                        students.
+                        MySQL, PostgreSQL, MongoDB, and UML.
                       </p>
                     </div>
                   }
@@ -188,19 +175,22 @@ export default function CareerHistory({
                 <FlipCard
                   front={
                     <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
-                      <UserGroupIcon className="w-10 h-10" />
-                      <p className="font-bold">Trained New Employees</p>
+                      <InfinitySymbol className="w-10 h-10" />
+                      <p className="font-bold text-md md:text-xs lg:text-lg">
+                        DevOps
+                      </p>
                     </div>
                   }
                   back={
-                    <div className="flex flex-col gap-2">
-                      <p className="font-bold">Trained New Employees</p>
+                    <div className="flex flex-col gap-1">
+                      <p className="font-bold">DevOps</p>
                       <p className="text-sm">
-                        Gave training to tutors to prepare them for the job.
+                        Configured applications to have CI/CD practices, which
+                        enables incremental code changes to staging and
+                        production.
                       </p>
                       <p className="text-sm">
-                        Taught fellow tutors skills on how to keep students
-                        engaged.
+                        AWS, Linux, Docker, and Github Actions.
                       </p>
                     </div>
                   }
@@ -217,7 +207,9 @@ export default function CareerHistory({
                   front={
                     <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
                       <ComputerDesktopIcon className="w-10 h-10" />
-                      <p className="font-bold">Frontend Development</p>
+                      <p className="font-bold text-md md:text-xs lg:text-lg">
+                        Frontend Development
+                      </p>
                     </div>
                   }
                   back={
@@ -240,7 +232,9 @@ export default function CareerHistory({
                   front={
                     <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
                       <CircleStackIcon className="w-10 h-10" />
-                      <p className="font-bold">Backend Development</p>
+                      <p className="font-bold text-md md:text-xs lg:text-lg">
+                        Backend Development
+                      </p>
                     </div>
                   }
                   back={
@@ -263,7 +257,9 @@ export default function CareerHistory({
                   front={
                     <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
                       <ConnectionSignal className="w-10 h-10" />
-                      <p className="font-bold">Electronics Programming</p>
+                      <p className="font-bold text-md md:text-xs lg:text-lg">
+                        Electronics Programming
+                      </p>
                     </div>
                   }
                   back={
@@ -285,7 +281,9 @@ export default function CareerHistory({
                   front={
                     <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
                       <TransmissionLte className="w-10 h-10" />
-                      <p className="font-bold">RF Technology</p>
+                      <p className="font-bold text-md md:text-xs lg:text-lg">
+                        RF Technology
+                      </p>
                     </div>
                   }
                   back={
@@ -313,19 +311,25 @@ export default function CareerHistory({
                 <FlipCard
                   front={
                     <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
-                      <ComputerDesktopIcon className="w-10 h-10" />
-                      <p className="font-bold">Frontend Development</p>
+                      <Chemistry className="w-10 h-10" />
+                      <p className="font-bold text-md md:text-xs lg:text-lg">
+                        Tutored in STEM Subjects
+                      </p>
                     </div>
                   }
                   back={
-                    <div className="flex flex-col gap-2">
-                      <p className="font-bold">Frontend Development</p>
-                      <p className="text-sm">
-                        Worked on creating data driven UI/UX for clients to
-                        optimise, standardise and automate company processes.
-                      </p>
-                      <p className="text-sm">
-                        ReactJS, VueJS, SvelteJS, TailwindCSS, and TypeScript.
+                    <div className="text-xs">
+                      <p className="font-bold">Subjects</p>
+                      <p>Year 11/12 VCE Physics</p>
+                      <p>Year 11/12 VCE Chemistry</p>
+                      <p>Year 11/12 VCE Further Maths.</p>
+                      <p>Year 10 Maths</p>
+                      <p>Year 6 Maths + English</p>
+                      <p className="pt-2">
+                        <b>Substituted for</b> <br />
+                        Year 11/12 VCE Methods, <br /> Year 11/12 VCE
+                        Specialist, <br /> Year 10 Science, <br />
+                        Year 4 Maths + English
                       </p>
                     </div>
                   }
@@ -335,41 +339,20 @@ export default function CareerHistory({
                 <FlipCard
                   front={
                     <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
-                      <CircleStackIcon className="w-10 h-10" />
-                      <p className="font-bold">Backend Development</p>
-                    </div>
-                  }
-                  back={
-                    <div className="flex flex-col gap-2">
-                      <p className="font-bold">Backend Development</p>
-                      <p className="text-sm">
-                        Worked on designing server-side infrastructure to
-                        provide ease of use APIs for frontend development.
+                      <UserGroupIcon className="w-10 h-10" />
+                      <p className="font-bold text-md md:text-xs lg:text-lg">
+                        Classes of up to 15 Students
                       </p>
-                      <p className="text-sm">
-                        MeteorJS, Python Django, REST APIs, and Soap APIs.
-                      </p>
-                    </div>
-                  }
-                />
-              </div>
-              <div className="w-full md:w-1/2 aspect-video p-2 animation-delay-100 animate-[fadeIn_1s]">
-                <FlipCard
-                  front={
-                    <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
-                      <AppConnectivity className="w-10 h-10" />
-                      <p className="font-bold">Database Design</p>
                     </div>
                   }
                   back={
                     <div className="flex flex-col gap-1">
-                      <p className="font-bold text-sm">Database Design</p>
+                      <p className="font-bold">Classes of up to 15 Students</p>
                       <p className="text-sm">
-                        Designed and developed Relational and Non-Relational
-                        databases based on client requirements.
+                        Handled classes between 5 to 15 students.
                       </p>
                       <p className="text-sm">
-                        MySQL, PostgreSQL, MongoDB, and UML.
+                        Catered for students with varying academic skills.
                       </p>
                     </div>
                   }
@@ -379,20 +362,46 @@ export default function CareerHistory({
                 <FlipCard
                   front={
                     <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
-                      <InfinitySymbol className="w-10 h-10" />
-                      <p className="font-bold">DevOps</p>
+                      <NewspaperIcon className="w-10 h-10" />
+                      <p className="font-bold text-md md:text-xs lg:text-lg">
+                        Administrative Work
+                      </p>
                     </div>
                   }
                   back={
-                    <div className="flex flex-col gap-1">
-                      <p className="font-bold">DevOps</p>
+                    <div className="flex flex-col gap-2">
+                      <p className="font-bold">Administrative Work</p>
                       <p className="text-sm">
-                        Configured applications to have CI/CD practices, which
-                        enables incremental code changes to staging and
-                        production.
+                        Created solutions for fellow tutors for various
+                        subjects.
                       </p>
                       <p className="text-sm">
-                        AWS, Linux, Docker, and Github Actions.
+                        Handled printing of worksheets for a large quantity of
+                        students.
+                      </p>
+                    </div>
+                  }
+                />
+              </div>
+              <div className="w-full md:w-1/2 aspect-video p-2 animation-delay-100 animate-[fadeIn_1s]">
+                <FlipCard
+                  front={
+                    <div className="w-full h-full flex flex-col gap-2 items-center justify-center">
+                      <Education className="w-10 h-10" />
+                      <p className="font-bold text-md md:text-xs lg:text-lg">
+                        Trained New Employees
+                      </p>
+                    </div>
+                  }
+                  back={
+                    <div className="flex flex-col gap-2">
+                      <p className="font-bold">Trained New Employees</p>
+                      <p className="text-sm">
+                        Gave training to tutors to prepare them for the job.
+                      </p>
+                      <p className="text-sm">
+                        Taught fellow tutors skills on how to keep students
+                        engaged.
                       </p>
                     </div>
                   }

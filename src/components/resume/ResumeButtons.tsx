@@ -17,7 +17,7 @@ export default function ResumeButtons({
   };
 
   return (
-    <div className="z-[10] p-2 md:px-2 bg-white dark:bg-gray-800 border-none md:border-r shadow-md md:shadow-xl w-full md:w-fill max-w-fit h-fit md:h-full flex flex-row md:flex-col items-center justify-start md:justify-center gap-1 overflow-x-scroll md:overflow-x-hidden overflow-y-hidden">
+    <div className="z-[10] p-2 md:px-2 rounded-md rounded-br-none bg-white dark:bg-gray-800 border-none md:border-r shadow-md md:shadow-xl w-full md:w-fill max-w-fit h-fit md:h-full flex flex-row md:flex-col items-center justify-start md:justify-center gap-1 overflow-x-hidden overflow-y-hidden">
       <div className="w-8">
         <ChevronLeftIcon
           className="w-8 h-8 text-black bg-white dark:text-white dark:bg-gray-800 cursor-pointer block md:hidden"

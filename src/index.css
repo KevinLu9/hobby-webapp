@@ -110,3 +110,7 @@ a {
 .animation-delay-300 {
   animation-delay: 300ms;
 }
+
+.card-h-full {
+  height: calc(100% - 44px);
+}
