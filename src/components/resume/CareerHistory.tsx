@@ -199,6 +199,7 @@ export default function CareerHistory({
             </div>
           )}
           {/* First Career END */}
+
           {/* Second Career START */}
           {selectedHistoryIndex == 1 && (
             <div className="flex w-full h-full flex-wrap pb-4">
